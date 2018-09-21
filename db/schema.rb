@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_21_224029) do
+ActiveRecord::Schema.define(version: 2018_09_21_230837) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "story"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
