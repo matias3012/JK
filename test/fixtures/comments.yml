@@ -3,7 +3,9 @@
 one:
   text: MyString
   author: MyString
+  blog: one
 
 two:
   text: MyString
   author: MyString
+  blog: two
