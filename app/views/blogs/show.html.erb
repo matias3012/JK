@@ -1,19 +1,45 @@
 <p id="notice"><%= notice %></p>
+<div class="Blog">
+    <p>
+    <strong>Title:</strong>
+    <%= @blog.title %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+  <p>
+    <strong>Story:</strong>
+    <%= @blog.story %>
+  </p>
 
-<p>
-  <strong>Story:</strong>
-  <%= @blog.story %>
-</p>
+  <p>
+    <strong>Author:</strong>
+    <%= @blog.author %>
+  </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @blog.author %>
-</p>
+  <%= link_to 'Edit', edit_blog_path(@blog) %> |
+  <%= link_to 'Back', blogs_path %>
+</div>
+</br>
+<div class="comments">
+  <table>
+    <thead>
+      <tr>
+        <th>Text</th>
+        <th>Author</th>
+      </tr>
+    </thead>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+    <tbody>
+      <% @blog.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.text %></td>
+          <td><%= comment.author %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</br>
+<div class="new_comments">
+  <%= render 'comments/form', comment: @new_comment %>
+
+</div>
